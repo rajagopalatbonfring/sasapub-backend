@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Add CORS headers - allows your frontend to call the API
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://sasapub-frontend.onrender.com/'); // Use '*' for now, or replace with 'https://sasapub-portfolio.onrender.com' for security
+    res.header('Access-Control-Allow-Origin', '*'); // Allows all domains (perfect for testing & multiple Render URLs)
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -35,6 +35,7 @@ app.get('/health', (req, res) => {
 
 // Contact Form Endpoint
 app.post('/send-contact', async (req, res) => {
+    console.log("recevied request!!")
     const { name, email, subject, message } = req.body;
 
     // Validation
